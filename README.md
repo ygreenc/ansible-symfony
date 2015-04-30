@@ -1,15 +1,13 @@
-# Symfony Deploy
+# Symfony2 Deployment role
 
-Brought to you by [Blacklight](http://www.blacklight.co.za).
+Ripped from [Blacklight](http://www.blacklight.co.za).
 
-Deployment role for Symfony 2 apps. Deployment can be done via Git, SVN, Mercurial, and Rsync. Tries to imitate a similar
-structure to what you would see with other deployment tools such as [Capistrano](http://capistranorb.com/). The final
-directory structure will look something like this:
+Ansible role for deploying Symfony2 apps
 
 ```
 project
     releases
-        // All releases will be going here
+        release
     shared
         app
             config
@@ -23,13 +21,6 @@ project
 The role also has error checking in place. If any of the steps fail the role will delete the newly created release folder
 and stop execution. If the deploy was successful the role will remove old releases.
 
-Other Deployment Roles
-----------------------
-
-Laravel4: [laravel4-deploy](https://galaxy.ansible.com/list#/roles/2146)
-
-Laravel5: [laravel5-deploy](https://galaxy.ansible.com/list#/roles/2145)
-
 Requirements
 ------------
 
@@ -39,11 +30,12 @@ Installation
 ------------
 
 ```
-ansible-galaxy install blacklight.symfony-deploy
+TODO ansible-galaxy
 ```
 
 Role Variables
 --------------
+
 
 ### symfony_root_dir (Required)
 
@@ -109,7 +101,7 @@ Example Playbook
     ansible_ssh_user: root
 
   roles:
-    - blacklight.symfony-deploy
+    - ygreenc.symfony2
 ```
 
 License
