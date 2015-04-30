@@ -58,4 +58,4 @@
   when: dump_assets|failed or current_symlink|failed
 
 - name: Run cleanup of old releases.
-  shell: ls -cdr {{ symfony_root_dir }}/releases/* | tail -n +{{ symfony_releases + 1 }} | xargs rm -fr
+  shell: ls -dt {{ symfony_root_dir }}/releases/* | tail -n +{{ symfony_releases + 1 }} | xargs rm -fr
