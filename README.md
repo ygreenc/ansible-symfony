@@ -36,57 +36,19 @@ TODO ansible-galaxy
 Role Variables
 --------------
 
-
-### symfony_root_dir (Required)
-
-The root directory of the project.
-
-### symfony_repo (Required)
-
-The URL to the repo containing the application code.
-
-### symfony_branch (Defaults: master)
-
-The branch that you would like to deploy.
-
-### symfony_strategy (Defaults: git)
-
-The deployment strategy to use. Available options: git, svb, mercurial, rsync
-
-### symfony_local_root (Defaults: /)
-
-This option is only used when deploying via Rsync. It defines the path to the local folder to upload to the server.
-
-*Important Note!* The path is relative to your playbook file.
-
-### symfony_env (Defaults: prod)
-
-Sets the Symfony environment. During the process this is used in composer commands as follows:
-
-```bash
-SYMFONY_ENV=prod composer...
-```
-
-### symfony_composer_path (Defaults: false)
-
-The path to an existing composer installation. If set to false, the role will automatically download composer into the
-projects root directory.
-
-### symfony_composer_options (Defaults: --no-dev --no-interaction --optimize-autoloader)
-
-Flags to add to the composer install command.
-
-### symfony_asset_options: (Defaults: '')
-
-Flags to add to the assetic:dump command.
-
-### symfony_php_path (Defaults: /usr/bin/php)
-
-The path to PHP. This is only used when the role has to download composer.
-
-### symfony_releases (Defaults: 5)
-
-The amount of releases to keep in the releases directory.
+| Variable | Default | Description |
+| -------- | ------- | ----------- |
+| symfony_root_dir | \<none\>(Required) | Project root directory |
+| symfony_repo | \<none\>(Required) | Repository url |
+| symfony_branch | master | Branch to checkout |
+| symfony_strategy | git | Checkout Strategy (git\|svn\|hg) |
+| symfony_local_root | / | Local root to symfony project (relative to playbook) |
+| symfony_env | prod | Symfony environment for commands |
+| symfony_composer_path | false | If false, will download composer into the project root |
+| symfony_composer_options | --no-dev --no-interaction --optimize-autoloader | Flags for composer |
+| symfony_assets_options | '' | Flags to add to assetic:dump command |
+| symfony_php_path | /usr/bin/php | Path to PHP (used when downloading composer) |
+| symfony_releases | 5 | Amount of releases to keep |
 
 Example Playbook
 ----------------
