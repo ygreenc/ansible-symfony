@@ -1,0 +1,12 @@
+# Handles database tasks
+---
+- name: Register database migrations path
+  stat: path={{ symfony_root_dir }}/releases/{{ release_version.stdout }}/app/DoctrineMigrations
+  register: has_db_migrations
+
+- name: Display value
+  shell: echo {{ perform_doctrine_migrations }}
+
+- name: Perform database migrations
+  shell: cd {{ symfony_root_dir }}/releases/{{ release_version.stdout }} && SYMFONY_ENV=prod app/console doctrine:migrations:migrate --no-interaction
+  when: perform_doctrine_migrations and has_db_migrations.stat.exists

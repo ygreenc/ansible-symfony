@@ -49,6 +49,7 @@ Role Variables
 | symfony_assets_options | '' | Flags to add to assetic:dump command |
 | symfony_php_path | /usr/bin/php | Path to PHP (used when downloading composer) |
 | symfony_releases | 5 | Amount of releases to keep |
+| perform_doctrine_migrations | False | Run doctrine migrations |
 
 Example Playbook
 ----------------

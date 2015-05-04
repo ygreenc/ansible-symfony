@@ -59,3 +59,6 @@
 
 - name: Run cleanup of old releases.
   shell: ls -dt {{ symfony_root_dir }}/releases/* | tail -n +{{ symfony_releases + 1 }} | xargs rm -fr
+
+- name: Database synchronization
+  include: database.yml
